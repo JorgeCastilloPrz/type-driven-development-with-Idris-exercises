@@ -1,5 +1,9 @@
 module Main
 
+-- Average method declares 2 local function definitions using the "where"
+-- keyword. It uses both to calculate wordCount and allLengths from a list of
+-- words. Both are used to calculate the average word length from a given
+-- string.
 average : (str : String) -> Double
 average str = let numWords = wordCount str
                   totalLength = sum (allLengths (words str)) in
@@ -15,5 +19,6 @@ average str = let numWords = wordCount str
 showAverage : String -> String
 showAverage str = "The average word length is: " ++ show (average str) ++ "\n"
 
+-- We request a string from the user in a loop inside the REPL
 main : IO ()
 main = repl "Enter a string: " showAverage
